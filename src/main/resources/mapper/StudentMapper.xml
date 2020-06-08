@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.StudentMapper">
+    <insert id="addStudent">
+		insert into student(name,age,score) values (#{name},#{age},#{score})
+	</insert>
+	<select id="getStudentById" parameterType="java.lang.Integer" resultType="com.ssm.beans.Student">
+		select * from student where id=#{id}
+	</select>
+	<delete id="delStudentById" parameterType="java.lang.Integer">
+		delete from student where id=#{id}
+	</delete>
+	<update id="updStudent" parameterType="com.ssm.beans.Student">
+		update student set name=#{name},age=#{age},score=#{score} where id=#{id}
+	</update>
+	<!--
+		关于参数类型(parameterType)的选择方式：
+   		1.如果传的是一个参数的话,那么就直接写其类型;
+   		2.如果是多个参数的话,那么传的参数就是javabean类型,注意这时候占位符里面的参数要和javabean对象的属性相匹配;
+   	-->
+</mapper>
