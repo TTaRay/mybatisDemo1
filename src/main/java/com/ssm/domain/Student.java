@@ -1,4 +1,4 @@
-package com.ssm.beans;
+package com.ssm.domain;
 
 public class Student {
     private Integer id;
@@ -14,6 +14,11 @@ public class Student {
         this.name = name;
         this.age = age;
         this.score = score;
+    }
+
+    @Override
+    public String toString() {
+        return id+"-"+name+"-"+age;
     }
 
     public Integer getId() {
