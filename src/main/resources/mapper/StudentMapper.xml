@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mybatis中为每一个映射文件添加一个namespace，这样不同的映射文件中sql语句的id相同也不会有冲突，只要定义在映射文件中的sql语句在该映射文件中id唯一就可以-->
 <mapper namespace="com.ssm.dao.StudentDao">
 	<!--
 		关于参数类型(parameterType)的选择方式：
@@ -12,7 +13,7 @@
 	<select id="findAll" resultType="com.ssm.domain.Student">
 		select * from student
 	</select>
-    <insert id="addStudent">
+	<insert id="addStudent">
 		insert into student(name,age,score) values (#{name},#{age},#{score})
 	</insert>
 	<select id="getStudentById" parameterType="java.lang.Integer" resultType="com.ssm.domain.Student">
